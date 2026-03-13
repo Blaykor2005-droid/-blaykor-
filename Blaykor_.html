@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>منصة ثانوية أبي بكر بالقايد</title>
+
+<style>
+
+:root{
+--gold:#d4af37;
+--gold2:#f1d592;
+--dark:#071a14;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+
+background:linear-gradient(135deg,#071a14,#0a2e23);
+
+color:white;
+
+min-height:100vh;
+
+}
+
+/* الصفحات */
+
+.page{
+display:none;
+padding:40px;
+}
+
+.active{
+display:block;
+}
+
+/* الصفحة الرئيسية */
+
+.home{
+
+text-align:center;
+margin-top:120px;
+
+}
+
+h1{
+color:var(--gold);
+margin-bottom:15px;
+}
+
+/* الأزرار */
+
+.btn{
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:12px 25px;
+
+background:linear-gradient(135deg,var(--gold),var(--gold2));
+
+border:none;
+
+border-radius:10px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+/* تسجيل الدخول */
+
+.login-box{
+
+max-width:350px;
+
+margin:auto;
+
+margin-top:80px;
+
+background:#0a2e23;
+
+padding:30px;
+
+border-radius:15px;
+
+}
+
+input,select{
+
+width:100%;
+
+padding:10px;
+
+margin:10px 0;
+
+border-radius:8px;
+
+border:none;
+
+}
+
+/* البطاقات */
+
+.card{
+
+background:#0a2e23;
+
+padding:20px;
+
+margin-top:20px;
+
+border-radius:10px;
+
+}
+
+/* زر الانستغرام */
+
+.insta{
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:12px 20px;
+
+background:linear-gradient(135deg,#ff512f,#dd2476);
+
+border-radius:10px;
+
+color:white;
+
+text-decoration:none;
+
+}
+
+.footer{
+
+text-align:center;
+
+margin-top:50px;
+
+padding:20px;
+
+border-top:1px solid rgba(255,255,255,0.1);
+
+}
+
+</style>
+
+<script>
+
+function showPage(id){
+
+let pages=document.querySelectorAll(".page");
+
+pages.forEach(p=>p.classList.remove("active"));
+
+document.getElementById(id).classList.add("active");
+
+}
+
+function login(){
+
+let type=document.getElementById("type").value;
+
+if(type==="student"){
+
+showPage("student");
+
+}
+
+else{
+
+showPage("admin");
+
+}
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<!-- الصفحة الرئيسية -->
+
+<div id="home" class="page active home">
+
+<h1>منصة ثانوية أبي بكر بالقايد</h1>
+
+<p>
+نظام رقمي للتواصل بين التلاميذ والإدارة.
+</p>
+
+<button class="btn" onclick="showPage('login')">
+الدخول إلى المنصة
+</button>
+
+</div>
+
+<!-- تسجيل الدخول -->
+
+<div id="login" class="page">
+
+<div class="login-box">
+
+<h2>تسجيل الدخول</h2>
+
+<select id="type">
+
+<option value="student">تلميذ</option>
+
+<option value="admin">الإدارة</option>
+
+</select>
+
+<input type="text" placeholder="اسم المستخدم">
+
+<input type="password" placeholder="كلمة المرور">
+
+<button class="btn" onclick="login()">
+دخول
+</button>
+
+</div>
+
+</div>
+
+<!-- لوحة التلميذ -->
+
+<div id="student" class="page">
+
+<h1>لوحة التلميذ</h1>
+
+<div class="card">
+<h3>الدروس</h3>
+<p>سيتم نشر الدروس هنا.</p>
+</div>
+
+<div class="card">
+<h3>الواجبات</h3>
+<p>عرض الواجبات المنزلية.</p>
+</div>
+
+<div class="card">
+
+<h3>إرسال شكوى</h3>
+
+<form action="mailto:Scalding2005@gmail.com" method="post" enctype="text/plain">
+
+<input type="text" name="name" placeholder="اسمك">
+
+<textarea name="message" placeholder="اكتب الشكوى"></textarea>
+
+<button class="btn" type="submit">
+إرسال
+</button>
+
+</form>
+
+</div>
+
+<a class="insta"
+href="https://www.instagram.com/2x_dororo?igsh=Y2tmYjJncHlwcTBo&utm_source=qr"
+target="_blank">
+
+فتح حساب الانستغرام
+
+</a>
+
+</div>
+
+<!-- لوحة الإدارة -->
+
+<div id="admin" class="page">
+
+<h1>لوحة الإدارة</h1>
+
+<div class="card">
+
+<h3>إدارة التلاميذ</h3>
+
+<p>إضافة أو حذف التلاميذ.</p>
+
+</div>
+
+<div class="card">
+
+<h3>إدارة الدروس</h3>
+
+<p>نشر الدروس.</p>
+
+</div>
+
+<div class="card">
+
+<h3>الشكاوي</h3>
+
+<p>عرض شكاوي التلاميذ.</p>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+<p>
+هذه الصفحة من تطوير التلميذ <b>بن هدية محمد</b>
+</p>
+
+<p>
+📞 الهاتف: 0696097899
+</p>
+
+</div>
+
+</body>
+</html>
